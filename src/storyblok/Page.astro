@@ -1,0 +1,31 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const { blok } = Astro.props;
+---
+
+<main
+  {...storyblokEditable(blok)}
+  style={{ backgroundColor: blok.bg_color }}
+  class="h-screen w-full"
+>
+  <div
+    class="container mx-auto flex flex-col items-center justify-center w-full h-full gap-6"
+  >
+    <h1 style={{ color: blok.text_color }} class="text-8xl font-primary">
+      {blok.title}
+    </h1>
+    <p
+      style={{ color: blok.text_color }}
+      class="text-2xl text-opacity-90 max-w-[1200px] font-secondary text-center"
+    >
+      {blok.text}
+    </p>
+    <img
+      src={blok.image.filename}
+      alt="photography"
+      class="max-w-[1200px] h-[600px] rounded-md"
+    />
+  </div>
+</main>
